@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"></head>
+
+<body>
+
+	<div th:replace="common/header :: navbar"></div>
+
+	<!-- container -->
+	<div class="container" style="width: 100%">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-xs-8">
+				<h2 class="section-headline">
+					<span th:text="${user}? ${#strings.toUpperCase(user.username)}"></span>
+				</h2>
+			</div>
+		</div>
+
+
+		<div class="row" style="margin-top: 10px">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-6 text-left">
+						<a th:href="@{/bookshelf}" class="btn btn-primary">Continue
+							Browsing</a>
+					</div>
+					<div class="col-sm-6 text-right">
+						<span th:text="${user}? ${#strings.toUpperCase(user.username)}"></span>
+					</div>
+					<br />
+					<div th:if="${purchaseError}" class="alert alert-warning">
+						This Book is Listed By you...!!, you cannot buy this Book, Please Try Another Book..</div>
+					
+ 					<div th:if="${purchaseErrorForDifferentSeller}" class="alert alert-warning">
+						 You cannot send Interest to this Books,Interest to Only One Book at a Time</div>
+					
+					<div th:if="${notEnoughStock}" class="alert alert-warning">
+						Oops, some of the product don't have enough stock. Please remove
+						out of stock items.</div>
+						
+					<div th:if="${emptyCart}" class="alert alert-warning">Cart
+						empty. Please browse our collection for amazing books.</div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col-sm-6">Products</div>
+					<div class="col-sm-2">Price</div>
+					<div class="col-sm-2">Quantity</div>
+					<div class="col-sm-2">Make An Offer</div>
+					
+				</div>
+				<hr />
+				<!-- display products in cart -->
+				<form th:action="@{/wishList/updateCartItem}" method="post">
+					<div class="row" th:each="cartItem : ${cartItemList}">
+
+						<div class="col-sm-2">
+							<a th:href="@{/bookDetail(id=${cartItem.book.id})}"> <img style="width:100px; height:150px;"
+								th:src="#{adminPath}+@{/images/book/}+${cartItem.book.id}+'.png'"
+								class="img img-responsive" />
+							</a>
+						</div>
+						<div class="col-sm-4">
+							<h5 th:text="${cartItem.book.getTitle()}"></h5>
+							<p th:if="${cartItem.book.inStockNumber&gt;1}"
+								style="color: green">In Stock</p>
+							<p
+								th:if="${cartItem.book.inStockNumber&lt;1 and cartItem.book.inStockNumber&gt;0}"
+								style="color: yellow;">
+								Only <span th:text="${cartItem.book.inStockNumber}"></span> In
+								stock
+							</p>
+							<p th:if="${cartItem.book.inStockNumber==0}" style="color: red">Out
+								of Stock</p>
+							<a th:id="${cartItem.book.getId()}"
+								th:href="@{/wishList/removeItem?id=}+${cartItem.id}"
+								style="color: red;">Delete</a>
+						</div>
+						<div class="col-sm-2">
+						<h5 style="color: #db3208; font-size: large;">
+							&#8377;<span th:text="${cartItem.book.ourPrice}"
+								th:style="${cartItem.book.inStockNumber}==0? 'text-decoration: line-through' : ''"></span>
+						</h5>
+					</div>
+					
+						<div class="col-sm-2">
+						<input hidden="hidden" name="id" th:value="${cartItem.id}" />
+						 <input
+							th:id="${cartItem.id}" th:name="qty"
+							th:disabled="${cartItem.book.inStockNumber==0}"
+							class="form-control cartItemQty" th:value="${cartItem.qty}" readonly/>							
+						 
+					</div>
+					
+					
+						<div class="col-sm-2">
+						<h5 style="color: #db3208; font-size: large;">
+							 <a th:href="@{/offerDeal(id=${wishCart.id})}"
+							class="btn btn-success">Send Offer</a>
+						</h5>
+					</div>					
+					
+					
+					
+					
+					
+			</div>
+			</form>
+			<hr />
+			
+			<div class="row">
+				<hr />
+				<h4 class="col-sm-12 text-right">
+					<strong style="font-size: large;">Total Price(<span
+						th:text="${#lists.size(cartItemList)}"></span> items)
+					</strong><span style="color: #dp3208; font-size: large;">&#8377;<span
+						th:text="${wishCart.grandTotal}"></span></span>
+				</h4>
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

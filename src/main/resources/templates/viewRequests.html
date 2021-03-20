@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"></head>
+<body>
+
+	<div th:replace="common/header :: navbar"></div>
+	<div class="container">
+		<!--Table-->
+		<table id="tablePreview" class="table">
+			<!--Table head-->
+			<thead>
+				<tr> 
+					<th>Title</th>
+					<th>Author</th>
+					<th>Category</th>
+					<th>List Price</th>
+					<th>Your Price</th>
+					<th>Delete<th>
+				</tr>
+			</thead>
+			<!--Table head-->
+			<!--Table body-->
+			
+			<tbody>
+				 <tr data-th-each="rbook : ${rbooks}"> 
+				<td> 
+					<td><a th:href="@{/requestBook/reqbooksInfo(id=${rbook.id})}"><span th:text="${rbook.title}"></span></a>
+					</td>
+					 <td th:text="${rbook.author}"></td>
+					<td th:text="${rbook.category}"></td>
+					<td th:text="${rbook.listPrice}"></td>
+					<td th:text="${rbook.yourPrice}"></td>
+					<td><a th:href="@{/requestBook/deletereqBook/?id=}+${rbook.id}">Delete Book</a></td>
+					<td><input hidden="hidden" name="id" th:value="@{reqbook.id}"/></td>
+				</tr>
+			</tbody>
+			<!--Table body-->
+		</table>
+		<!--Table-->
+	</div>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+	<script>
+		$(document).ready(function(){
+			$('#tablePreview').DataTable({
+				ordering:false
+			});
+		});
+	</script>
+</body>
+</html>

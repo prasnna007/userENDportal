@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"></head>
+
+<body>
+
+	<div th:replace="common/header :: navbar"></div>
+ 
+	<div class="container">
+		<!-- Tab panes --> 
+			<div class="row">
+				<!-- left-panel -->
+				
+				<!-- right-panel checkout-info -->
+				<div class="col-sm-8">
+					<div th:if="${missingRequiredField}">
+						<h5 class="alert alert-warning">There are some fields
+							missing. * marked are required.</h5>
+					</div>
+					
+						<h5 style="color:red"> You Can Send Offer to the Book Owner, If he Feels Interested He Will Revert Back</h5>
+					
+					<form th:action="@{/offerDeal/}" method="post">
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="description">Description</label>
+					<div class="col-sm-10">
+						<textarea class="form-control" rows="5" id="description" name="description"
+							 placeholder="Description" ></textarea>
+					</div>
+				 </div> 
+				<div class="row" th:each="cartItem : ${cartItemList}">
+				<hr />
+				
+				 <div class="col-xs-12">
+				 <input type="hidden" class="form-control" id="id" name="id"
+				 th:value="${cartItem.book.id}" required="required" placeholder="book ID">
+				 <input type="hidden" class="form-control" id="ids" name="ids"
+				 th:value="${cartItem.book.sellerId}" required="required" placeholder="Seller ID">
+				 </div>
+  				</div>
+				
+				
+				<button type="submit" class="col-sm-2 btn btn-success">Offer this deal</button>
+			 	<span class="col-sm-2 help-block" style="font-size: smaller;">Write Your Offer With Best Description</span>
+				
+				</form>
+				 
+			 	<span class="col-sm-12 block" style="font-size: smaller;">If you Send Offer, you agree to receive call-mail from Book-Owner</span>
+				
+	 </div>
+						</div>
+ 
+					</div>	
+				 
+		
+	 
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

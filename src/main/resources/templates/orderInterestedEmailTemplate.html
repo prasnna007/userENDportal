@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="/css/non-responsive.css" rel="stylesheet" />
+
+<link href="/css/font-awesome.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+ 
+</head>
+<body>
+<p>Dear <span th:text="${user.firstName}"></span>,</p>
+<br/>
+<p>SomeBody's Interested In Purchasing your Book ....!!!!!</p> <br/>
+<hr/>
+
+
+<h3><strong>Interested In Your Book <span th:text="${bk.title}"></span> </strong></h3>
+
+
+<h3><strong>User  <span th:text="${userPurchaser.username}"> is interested in your book</span></strong></h3><br/>
+ 
+<h3><strong>He has Offered you following deal <br> <span th:text="${msg.message}"></span> </strong></h3>
+  
+<br/>
+<p>You can call or Email Him with Details given below , If you are Interested in their offer.</p> <br/>
+
+
+<h3> <span th:text="${userPurchaser.email}"></span> 
+<span th:text="${userPurchaser.phone}"></span>
+
+</h3>
+<br/>
+<hr/>
+
+<br/>
+<p>Verifying the Buyer is your Responsibility, ShareBuddy is not Responsible for any losses incurred </p>
+<p>Thanks & Regards ,</p>
+<p>ShareBuddy</p>
+   
+<p> Note :  This is system generated email . Please do not respond to this email </p>
+</body>
+</html>

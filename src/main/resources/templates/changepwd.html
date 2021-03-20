@@ -1,0 +1,87 @@
+
+			
+			
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" > </div>
+
+	<div class="container">
+		<div class="row" style="margin-bottom: -100px;">
+			<div class="col-xs-8">
+				
+			</div>
+			 
+		</div>
+		<hr style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px;" />
+		<img class="img-responsive" src="/image/wood.png"
+			style="margin-top: -75px;" />
+
+		<div class="row" style="margin-top: 60px;">
+			<div class="col-xs-9 col-xs-offset-3">
+
+				<!-- Tab panels -->
+				<div class="tab-content"> 
+				<div th:if="${updateSuccess}">
+				<h5 style="font-style: italic;">PassWord Changed Succesfully.</h5>
+			</div>
+					 
+						<div class="panel-group">
+							<div class="panel panel-default" style="border: none;">
+								<div class="panel-body"
+									style="background-color: #ededed; margin-top: 20px;">
+
+									<div class="alert alert-danger" th:if="${incorrectPassword}">
+										<strong>Incorrect Password!</strong> Please enter the correct
+										password for the current user.
+									</div>
+
+									<div class="alert alert-succss" th:if="${updateSuccess}">
+										<strong>Update Success!</strong>
+									</div>
+									
+
+									<form th:action="@{/changepwd}" method="post">
+										<input type="hidden" name="username" th:value="${user.username}" />
+
+																		 
+										<div class="form-group">
+											<label for="currentPassword">Current Password</label> ' <input
+												type="password" class="form-control" id="currentPassword"
+												name="password" th:value="${currentPassword}" />
+										</div>
+										<p style="color: #828282">Enter your current password to
+											change the email address or password.</p>
+
+										<div class="form-group">
+											<label for="txtNewPassword">Password</label>&nbsp;<span
+												id="checkPasswordMatch" style="color: red;"></span> <input
+												type="password" class="form-control" id="txtNewPassword"
+												name="newPassword" />
+										</div>
+
+										<div class="form-group">
+											<label for="txtConfirmPassword">Confirm Password</label> ' <input
+												type="password" class="form-control" id="txtConfirmPassword" />
+										</div>
+										<p style="color: #828282">To change the current user
+											password, enter the new password in both fields.</p>
+
+										<button id="updateUserInfoButton" type="submit"
+											class="btn btn-primary">Save</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div> 
+			</div>
+		</div>
+	</div>
+	<!-- end of container --> 
+
+	<div th:replace="common/header :: body-bottom-scripts" > </div>
+</body>
+</html>
+			

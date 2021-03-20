@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+<script
+	src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<head th:replace="common/header :: common-header">
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div th:replace="common/header :: navbar"></div>
+
+	<div class="container" style="width: 100%">
+		<div class="row">
+			<div id="carousel" class="carousel slide carousel-fade"
+				data-ride="carousel" data-interval="6000">
+				<ol class="carousel-indicators">
+					<li data-target="#carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel" data-slide-to="1"></li>
+					<li data-target="#carousel" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<a href=#> <picture>
+							<source
+								srcset=""
+								media="(min-width: 769px)">
+							<source
+								srcset="https://raw.githubusercontent.com/onkarantad007/share_buddy_images/main/1%20TDolIW_SESDjOrOd5N2KIA.jpg"
+								media="(min-width: 769px)">
+
+							<source
+								srcset=""
+								media="(min-width: 577px)">
+							<img srcset="" alt="responsive image" class="d-block img-fluid">
+							</picture>
+
+							<div
+								class="carousel-caption">
+								<div>
+									<h2>
+										<font color="#FFFFFF">SHARE BUDDY </font>
+									</h2>
+									<p>
+										<font color="#FFFFFF">The Best Book Sharing Platform </font>
+									</p>
+									
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- /.carousel-item -->
+					<div class="carousel-item">
+						<a href="#"> <picture>
+							<source srcset=""
+								media="(min-width: 1400px)">
+							<source
+								srcset="https://raw.githubusercontent.com/onkarantad007/share_buddy_images/main/blur-book-stack-books-bookshelves-590493-2.jpg"
+								media="(min-width: 769px)">
+							<source srcset=""
+								media="(min-width: 577px)">
+							<img srcset=""
+								alt="responsive image" class="d-block img-fluid"> </picture>
+
+							<div
+								class="carousel-caption justify-content-center align-top">
+								<div>
+									<h2>
+										<font color="#FFFFFF">A room without books is like a
+											body without a soul.</font>
+									</h2>
+									<p>
+										<font color="#FFFFFF">Find Second hand Books in
+											Lowest/Negotiable price </font>
+									</p>
+									
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- /.carousel-item -->
+					<div class="carousel-item">
+						<a href="https://bootstrapcreative.com/"> <picture>
+							<source srcset=""
+								media="(min-width: 1400px)">
+							<source
+								srcset="https://raw.githubusercontent.com/onkarantad007/share_buddy_images/main/87-872073_tablet-book-wallpaper-black-and-white.jpg"
+								media="(min-width: 769px)">
+							<source srcset=""
+								media="(min-width: 577px)">
+							<img srcset=""
+								alt="responsive image" class="d-block img-fluid"> </picture>
+
+							
+								<div class="carousel-caption justify-content-center align-top">
+									<h2>
+										<font color="white">Searching for True Purpose of life
+										</font>
+									</h2>
+									<p>
+										<font color="white">We are giving the Best Deals for
+											Your Knowledge Improvisation, Search for the best Book deals
+											here </font>
+									</p>
+									
+								</div>
+							
+						</a>
+					</div>
+					<!-- /.carousel-item -->
+				</div>
+				<!-- /.carousel-inner -->
+				<a class="carousel-control-prev" href="#carousel" role="button"
+					data-slide="prev"> <span class="carousel-control-prev-icon"
+					aria-hidden="true"></span> <span class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carousel" role="button"
+					data-slide="next"> <span class="carousel-control-next-icon"
+					aria-hidden="true"></span> <span class="sr-only">Next</span>
+				</a>
+			</div>
+
+		</div>
+		<hr />
+		<h3>Our Motive</h3>
+		<div class="row">
+
+			<div class="col-lg-4 col-md-4 col-xs-4 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					src="http://swapthebook.com/wp-content/uploads/2016/05/libray1-360x241.jpg"
+					alt="">
+					<p>About Us</p>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-4 col-xs-4 thumb">
+
+
+				<a class="thumbnail" th:href="@{/requestBook/addRequest}"> <img
+					class="img-responsive"
+					src="http://swapthebook.com/wp-content/uploads/2016/05/library2-360x241.jpg"
+					alt="">
+					<p>Sell Your Book</p>
+				</a>
+			</div>
+
+
+
+			<div class="col-lg-4 col-md-4 col-xs-4 thumb">
+				<a class="thumbnail" th:href="@{/bookshelf}"> <img
+					class="img-responsive"
+					src="http://swapthebook.com/wp-content/uploads/2016/05/slidescope-libraryshare-buy-used-books-online-360x241.jpg"
+					alt="">
+					<p>Interested in Buying used Books</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="onoffswitch3">
+				<input type="checkbox" name="onoffswitch3"
+					class="onoffswitch3-checkbox" id="myonoffswitch3" checked>
+				<label class="onoffswitch3-label" for="myonoffswitch3"> <span
+					class="onoffswitch3-inner"> <span
+						class="onoffswitch3-active"> <marquee class="scroll-text">
+								1)Three Thousand Stitches: Ordinary People-Sudha Murty <span
+									class="glyphicon glyphicon-forward"></span> 2)The Immortals of
+								Meluha (Shiva Trilogy): 1 by Amish <span
+									class="glyphicon glyphicon-forward"></span> Everything I Never
+								Told You-by Ajay k Pandey <span
+									class="glyphicon glyphicon-forward"></span>4)Chanakya Neeti
+								with Chanakya Sutra Sahit - Hindi by Ashwin Parashar
+							</marquee> <span class="onoffswitch3-switch">What's in trend :X: <span
+								class=""></span></span>
+					</span> <span class="onoffswitch3-inactive"><span
+							class="onoffswitch3-switch">SHOW BREAKING NEWS</span></span>
+				</span>
+				</label>
+			</div>
+
+		</div>
+		<div>
+			<div class="home-headline">
+				<span>About Us</span>
+
+				<link rel="stylesheet"
+					href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+					integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+					crossorigin="anonymous">
+
+			</div>
+			<hr style="margin-top: -18px" />
+		</div>
+
+		<div id="container">
+			<div id="part1">
+				<div id="companyinfo">
+					<a id="sitelink" href="#">ShareBuddy</a>
+					<p id="title">We provide best Second hand Book Solution</p>
+					<p id="detail">Our Goal is to provide Best and easy solution to
+						the people who finding One-stop book solution</p>
+				</div>
+				<div id="explore">
+					<p id="txt1">Explore</p>
+					<a class="link" href="#">Home</a> <a class="link" href="#">About</a>
+					<a class="link" href="#">Snippet</a> <a class="link" href="#">Careers</a>
+				</div>
+				<div id="visit">
+					<p id="txt2">Visit</p>
+					<p class="text">Share Buddy House</p>
+					<p class="text">Acts Pune</p>
+					<p class="text">Pune 411030</p>
+					<p class="text">Phone: (22) 2363-3611</p>
+					<p class="text">Fax: (22) 2363-0350</p>
+				</div>
+				<div id="legal">
+					<p id="txt3">Legal</p>
+					<a class="link1" href="#">Terms and Conditions</a> <a class="link1"
+						href="#">Private Policy</a>
+				</div>
+				<div id="subscribe">
+					<p id="txt4">Subscribe to US</p>
+					<form>
+						<input id="email" type="email" placeholder="Email">
+					</form>
+					<a class="waves-effect waves-light btn">Subscribe</a>
+					<p id="txt5">Connect With US</p>
+					<i class="fab fa-facebook-square social fa-2x"></i> <i
+						class="fab fa-linkedin social fa-2x"></i> <i
+						class="fab fa-twitter-square social fa-2x"></i>
+				</div>
+			</div>
+			<div id="part2">
+				<p id="txt6">
+					<i class="material-icons tiny"></i>copyright 2021 ShareBuddy - All
+					right reserved
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>
